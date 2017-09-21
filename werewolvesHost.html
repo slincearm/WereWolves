@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+
+<link rel="stylesheet" type="text/css" href="style/werewolves.css" />
+<!-- <script type="text/javascript" src="script/jquery-3.2.1.min.js"></script> -->
+<!--script type="text/javascript" src="script/jquery.mobile-1.4.5.min.js"></script-->
+<script type="text/javascript" src="script/werewolves.js" charset="utf8"></script>
+<script data-main="script/main" src="js/lib/require.js" type="text/javascript"></script>
+<title>狼人殺 - 主持人助手</title>
+
+<script>
+
+// $(function() {
+//     console.log( "+main()" );
+
+//     init_page();
+//     regist_event();
+//     //$("#vNightfallCloseEyes")[0].play();
+// 	console.log("-main()");
+
+//     $('#btnStop').on('click', function(){
+//         console.log('hello stone');
+//     });
+// });
+</script>
+</head>
+
+<body>
+
+<audio id="vNum1" src="voice/1.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum2" src="voice/2.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum3" src="voice/3.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum4" src="voice/4.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum5" src="voice/5.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum6" src="voice/6.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum7" src="voice/7.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum8" src="voice/8.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum9" src="voice/9.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum10" src="voice/10.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum11" src="voice/11.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum12" src="voice/12.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum13" src="voice/13.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum14" src="voice/14.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum15" src="voice/15.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNum16" src="voice/16.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vAncientClose" src="voice/ancient_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vAncientOpen" src="voice/ancient_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vBearLeaderClose" src="voice/bearleader_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vBearLeaderOpen" src="voice/bearleader_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vBearLeaderSkill" src="voice/bearleader_skill.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vDaybreak" src="voice/daybreak.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vDaybreakOpenEyes" src="voice/daybreak_please_open_eyes.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vDiscussion" src="voice/discussion.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vHunterClose" src="voice/hunter_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vHunterOpen" src="voice/hunter_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vIdiotClose" src="voice/idiot_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vIdiotOpen" src="voice/idiot_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vNightfallCloseEyes" src="voice/nightfall_please_close_eyes.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vPlayerKilledWithWords" src="voice/player_x_has_been_killed_last_night_without_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vPlayerKilledWithoutWords" src="voice/player_x_has_been_killed_last_night_with_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vPlayerKilled" src="voice/player_x_has_been_killed_tonight.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSaviorClose" src="voice/savior_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSaviorOpen" src="voice/savior_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSaviorSkill" src="voice/savior_skill.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSeerClose" src="voice/seer_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSeerOpen" src="voice/seer_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSeerSkill1" src="voice/seer_skill1.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSeerSkill2" src="voice/seer_skill2.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSheriffElection" src="voice/sheriff_election.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vSheriffVote" src="voice/sheriff_vote.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vThiefClose" src="voice/thief_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vThiefOpen" src="voice/thief_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vThiefSkill" src="voice/thief_skill.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vThDay" src="voice/th_day.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vThNight" src="voice/th_night.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vTodayIs" src="voice/today_is.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWerewolvesClose" src="voice/werewolves_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWerewolvesOpen" src="voice/werewolves_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWerewolvesSkill" src="voice/werewolves_skill.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWitchClose" src="voice/witch_close.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWitchOpen" src="voice/witch_open.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWitchSkill1" src="voice/witch_skill1.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vWitchSkill2" src="voice/witch_skill2.mp3" type="audio/mpeg" preload="auto"></audio>
+
+
+
+<div class='prog'>
+
+<div class='title'><span>狼人殺 - 主持人助手</span></div>
+<div class='config-bar'><span>設定</span><img src='i/icon-arrow-up.png'></img></div>
+    <div class='config'>
+        <div class='character'>
+                <input type="checkbox" id="seer" name="seer" value="4" checked>預言家</input>
+                <input type="checkbox" id="hunter" name="hunter" value="7" checked>獵人</input>
+                <input type="checkbox" id="witch" name="witch" value="5" checked>女巫</input><br/>
+                <input type="checkbox" id="savior" name="savior" value="2">守衛</input>
+                <input type="checkbox" id="werewolf" name="werewolf" value="3" checked>狼人</input>
+                <input type="checkbox" id="ancient" name="ancient" value="6">長老</input><br/>
+                <input type="checkbox" id="thief" name="thief" value="1" checked>盜賊</input>
+                <input type="checkbox" id="idiot" name="idiot" value="8">白痴</input>
+                <input type="checkbox" id="bearleader" name="bearleader" value="9">熊</input><br/>
+                <input style="display: none;" type="checkbox" id="mycontinue" name="mycontinue" value="0">
+                <input style="display: none;" type="checkbox" id="occ_played" name="occ_played" value="0">
+                <input style="display: none;" type="checkbox" id="next_job" name="next_job" value="0">
+	    </div>
+        <div class='settings'>
+            <select id='sel_day'></select><br/>
+            <select id='sel_tSkill'></select><br/>
+            <select id='sel_tRole'></select><br/>
+        </div>
+    </div>
+
+<div class='btns'>
+    <input id="btnStart" type="button" name="start" value='遊戲開始'></input>
+    <input id="btnContinue" type="button" name="continue" value='繼續'></input>
+    <input id="btnStop" type="button" name="stop" value='結束'></input>
+    <input id="btnTest" type="button" name="test" value='TEST'></input>
+</div>
+
+<div id='rundown'>
+    <textarea rows="16" readonly></textarea>
+</div>
+
+</div>
+
+</body>
+</html>
