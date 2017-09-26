@@ -80,3 +80,13 @@ div.config-bar span {
     padding: 0px 5px;
 }
 
+.choose-id {
+    background-color: #DDD;
+    display: inline-block;
+    margin: 5px;
+    height: 80px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
