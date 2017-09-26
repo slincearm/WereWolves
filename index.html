@@ -2,13 +2,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="pragma" content="no-cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" type="text/css" href="style/werewolves.css" />
+<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 <!-- <script type="text/javascript" src="script/jquery-3.2.1.min.js"></script> -->
 <!--script type="text/javascript" src="script/jquery.mobile-1.4.5.min.js"></script-->
 <script type="text/javascript" src="script/werewolves.js" charset="utf8"></script>
+<!-- <script data-main="script/main" src="js/lib/require.js" type="text/javascript"></script> -->
 <script data-main="script/main" src="js/lib/require.js" type="text/javascript"></script>
-<title>22222-狼人殺 - 主持人助手</title>
+<title>狼人殺 - 主持人助手</title>
 
 <script>
 
@@ -58,8 +61,8 @@
 <audio id="vIdiotClose" src="voice/idiot_close.mp3" type="audio/mpeg" preload="auto"></audio>
 <audio id="vIdiotOpen" src="voice/idiot_open.mp3" type="audio/mpeg" preload="auto"></audio>
 <audio id="vNightfallCloseEyes" src="voice/nightfall_please_close_eyes.mp3" type="audio/mpeg" preload="auto"></audio>
-<audio id="vPlayerKilledWithWords" src="voice/player_x_has_been_killed_last_night_without_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
-<audio id="vPlayerKilledWithoutWords" src="voice/player_x_has_been_killed_last_night_with_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vPlayerKilledWithWords" src="voice/player_x_has_been_killed_last_night_with_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
+<audio id="vPlayerKilledWithoutWords" src="voice/player_x_has_been_killed_last_night_without_last_words.mp3" type="audio/mpeg" preload="auto"></audio>
 <audio id="vPlayerKilled" src="voice/player_x_has_been_killed_tonight.mp3" type="audio/mpeg" preload="auto"></audio>
 <audio id="vSaviorClose" src="voice/savior_close.mp3" type="audio/mpeg" preload="auto"></audio>
 <audio id="vSaviorOpen" src="voice/savior_open.mp3" type="audio/mpeg" preload="auto"></audio>
@@ -85,39 +88,71 @@
 <audio id="vWitchSkill2" src="voice/witch_skill2.mp3" type="audio/mpeg" preload="auto"></audio>
 
 
+<!-- Modal -->
+<div class="modal fade" id="commonModal" tabindex="-1" data-target="" data-backdrop="static" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commonModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body row" id="players_block">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary modalContinue" id="modalContinueBtn" style="cursor: pointer;">繼續</button>
+        <button type="button" class="btn btn-success" id="modalYes" style="display: none;">是</button>
+        <button type="button" class="btn btn-danger" id="modalNo" style="display: none;">否</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class='prog'>
+
+
+
+
+<div class='col-12' style="padding: 0px;">
 
 <div class='title'><span>狼人殺 - 主持人助手</span></div>
 <div class='config-bar'><span>設定</span><img src='i/icon-arrow-up.png'></img></div>
     <div class='config'>
         <div class='character'>
-                <input type="checkbox" id="seer" name="seer" value="4" checked>預言家</input>
-                <input type="checkbox" id="hunter" name="hunter" value="7" checked>獵人</input>
-                <input type="checkbox" id="witch" name="witch" value="5" checked>女巫</input><br/>
-                <input type="checkbox" id="savior" name="savior" value="2">守衛</input>
-                <input type="checkbox" id="werewolf" name="werewolf" value="3" checked>狼人</input>
-                <input type="checkbox" id="ancient" name="ancient" value="6">長老</input><br/>
-                <input type="checkbox" id="thief" name="thief" value="1" checked>盜賊</input>
-                <input type="checkbox" id="idiot" name="idiot" value="8">白痴</input>
-                <input type="checkbox" id="bearleader" name="bearleader" value="9">熊</input><br/>
-                <input style="display: none;" type="checkbox" id="mycontinue" name="mycontinue" value="0">
-                <input style="display: none;" type="checkbox" id="occ_played" name="occ_played" value="0">
-                <input style="display: none;" type="checkbox" id="next_job" name="next_job" value="0">
+            <div class="row">
+                <div class="col-3 col-md-3"><img src="i/Seer.png" style="width: 100%;"><input type="checkbox" id="seer" name="seer" value="4" checked>預言家</input></div>
+                <div class="col-3 col-md-3"><img src="i/Hunter.png" style="width: 100%;"><input type="checkbox" id="hunter" name="hunter" value="7" checked>獵人</input></div>
+                <div class="col-3 col-md-3"><img src="i/Witch.png" style="width: 100%;"><input type="checkbox" id="witch" name="witch" value="5" checked>女巫</input></div>
+                <div class="col-3 col-md-3"><img src="i/Savior.png" style="width: 100%;"><input type="checkbox" id="savior" name="savior" value="2" checked>守衛</input></div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-md-3"><img src="i/Werewolf.png" style="width: 100%;"><input type="checkbox" id="werewolf" name="werewolf" value="3" checked>狼人</input></div>
+                <div class="col-3 col-md-3"><img src="i/Ancient.png" style="width: 100%;"><input type="checkbox" id="ancient" name="ancient" value="6">長老</input></div>
+                <div class="col-3 col-md-3"><img src="i/Thief.png" style="width: 100%;"><input type="checkbox" id="thief" name="thief" value="1">盜賊</input></div>
+                <div class="col-3 col-md-3"><img src="i/Idiot.png" style="width: 100%;"><input type="checkbox" id="idiot" name="idiot" value="8">白痴</input></div>
+                <!-- <div class="col-3 col-md-3"><img src="i/Seer.png" style="width: 100%;"><input type="checkbox" id="bearleader" name="bearleader" value="9">熊</input></div> -->
+            </div>
+            
+            <input style="display: none;" type="checkbox" id="mycontinue" name="mycontinue" value="0">
+            <input style="display: none;" type="checkbox" id="occ_played" name="occ_played" value="0">
+            <!-- <input style="display: none;" type="checkbox" id="next_job" name="next_job" value="0"> -->
 	    </div>
         <div class='settings'>
             <select id='sel_day'></select><br/>
             <select id='sel_tSkill'></select><br/>
             <select id='sel_tRole'></select><br/>
+            <select id='sel_tPlays'></select><br/>
         </div>
     </div>
 
 <div class='btns'>
-    <input id="btnStart" type="button" name="start" value='遊戲開始'></input>
-    <input id="btnContinue" type="button" name="continue" value='繼續'></input>
-    <input id="btnStop" type="button" name="stop" value='結束'></input>
-    <input id="btnTest" type="button" name="test" value='TEST'></input>
+    <button id="btnStart" id="btnStart" type="button" class="btn btn-dark">遊戲開始</button>
+    <!-- <button id="btnContinue" type="button" class="btn btn-dark">繼續</button> -->
+    <button id="btnStop" type="button" class="btn btn-dark">結束</button>
+    <button id="btnTest" type="button" class="btn btn-dark">恢復</button>
 </div>
+
+
 
 <div id='rundown'>
     <textarea rows="16" readonly></textarea>
