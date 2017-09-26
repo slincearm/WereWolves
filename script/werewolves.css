@@ -1,0 +1,92 @@
+/*
+@font-face {
+    font-family: 'Noto Sans TC';
+    src: url("font/NotoSansTC-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+*/
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+div.prog {
+    width: 300px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+}
+
+div.title {
+    text-align:center;
+    background-color: black;
+    color: white;
+}
+
+div.title  span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.config {
+    width: 100%;
+    background-color: #4d88ff;
+}
+
+div.character {
+    width: 100%;
+}
+
+div.character input[type="checkbox"] {
+    padding: 0px 5px;
+}
+
+div.settings {
+    padding: 3px 10px;
+}
+
+div.settings select {
+    width: 150px;
+    margin: 3px 0px;
+}
+
+div.btns {
+    width: 100%;
+    text-align:center;
+    background-color: 80aaff;
+}
+div.btns input[type="button"] {
+    padding: 0px 10px;
+    margin: 0px 5px;
+}
+
+div.config-bar {
+    width: 100%;
+    background-color: 80aaff;
+    cursor: pointer;
+    cursor: hand;
+}
+
+div.config-bar span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 0px 5px;
+}
+
+.choose-id {
+    background-color: #DDD;
+    display: inline-block;
+    margin: 5px;
+    height: 80px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
