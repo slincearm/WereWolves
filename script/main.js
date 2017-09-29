@@ -181,12 +181,18 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
         // console.log('當前Modal = '+$('#commonModal').data('target'));
         $(this).find('div .choose-id').each(function( index, data)
         {
+			var roleStr = '玩家';
+			if(role_stats[index].user == 'sheriff')
+			{
+				roleStr = '警長';
+				$(this).html('警長'+(index+1));
+			}
             if(role_stats[index].role != '')
             {
-                // console.log(index);
+               // console.log(index);
                 if(role_stats[index].role == 'werewolves')
                 {
-                    $(this).html('玩家'+(index+1)+'<br>狼人');
+                    $(this).html(roleStr+(index+1)+'<br>狼人');
                     if(role_stats[index].status == 0)
                     {
                         $(this).css('background-color', 'rgb(255, 0, 0)');
@@ -195,7 +201,7 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 }
                 if(role_stats[index].role == 'witch')
                 {
-                    $(this).html('玩家'+(index+1)+'<br>女巫');
+                    $(this).html(roleStr+(index+1)+'<br>女巫');
                     if(role_stats[index].status == 0)
                     {
                         $(this).css('background-color', 'rgb(0, 128, 0)');
@@ -204,7 +210,7 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 }
                 if(role_stats[index].role == 'hunter')
                 {
-                    $(this).html('玩家'+(index+1)+'<br>獵人');
+                    $(this).html(roleStr+(index+1)+'<br>獵人');
                     if(role_stats[index].status == 0)
                     {
                         $(this).css('background-color', 'rgb(0, 128, 0)');
@@ -213,7 +219,7 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 }
                 if(role_stats[index].role == 'seer')
                 {
-                    $(this).html('玩家'+(index+1)+'<br>預言家');
+                    $(this).html(roleStr+(index+1)+'<br>預言家');
                     if(role_stats[index].status == 0)
                     {
                         $(this).css('background-color', 'rgb(0, 128, 0)');
@@ -222,7 +228,7 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 }
                 if(role_stats[index].role == 'savior')
                 {
-                    $(this).html('玩家'+(index+1)+'<br>守衛');
+                    $(this).html(roleStr+(index+1)+'<br>守衛');
                     if(role_stats[index].status != 4 || role_stats[index].status != 8 || role_stats[index].status != 10 )
                     {
                         $(this).css('background-color', 'rgb(0, 128, 0)');
@@ -232,13 +238,13 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
             }
             if(role_stats[index].status == 4 || role_stats[index].status == 5 || role_stats[index].status == 8)
             {
-                $(this).html('玩家'+(index+1)+'<br>'+getRole(index+1)+'<br>(被獵殺)');
+                $(this).html(roleStr+(index+1)+'<br>'+getRole(index+1)+'<br>(被獵殺)');
                 $(this).css('background-color', 'purple');
                 $(this).css('color', 'white');
             }
             if(role_stats[index].status == 10)
             {
-                $(this).html('玩家'+(index+1)+'<br>'+getRole(index+1)+'<br>(出局)');
+                $(this).html(roleStr+(index+1)+'<br>'+getRole(index+1)+'<br>(出局)');
                 $(this).css('background-color', 'orange');
                 $(this).css('color', 'white');
             }
@@ -440,7 +446,36 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 setUncheckedColor($(this));
             }
         }
-
+		
+		if(targetModal == 'hunter-select' && hunter_count <= 0 && role_stats[user].role != 'werewolves'  && role_stats[user].role != 'witch' && role_stats[user].role != 'seer' && role_stats[user].role != 'savior')
+		{
+			setCheckedColor($(this));
+			hunter_count++;
+			role_stats[user].role = 'hunter';
+		}
+		else if(targetModal == 'hunter-select' && isChecked($(this)))
+		{
+            role_stats[user].role = '';
+            hunter_count--;
+            setUncheckedColor($(this));
+		}
+		
+		if(targetModal == 'sheriff-select' && sheriff_count <= 0)
+		{
+			setCheckedColor($(this));
+			sheriff_count++;
+			role_stats[user].user = 'sheriff';
+			alert(user);
+			$("#modalContinueBtn").attr("disabled", false);
+		}
+		else if(targetModal == 'sheriff-select' && isChecked($(this)))
+		{
+            role_stats[user].user = user+1;
+            sheriff_count--;
+            setUncheckedColor($(this));
+			$("#modalContinueBtn").attr("disabled", true);
+		}	
+/*
         // 標記獵人
         else if(targetModal == 'hunter-select' && hunter_count <= 0 && role_stats[user].role != 'werewolves'  && role_stats[user].role != 'witch' && role_stats[user].role != 'seer' && role_stats[user].role != 'savior')
         {
@@ -525,7 +560,7 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
                 $(this).css('color', 'black');
             }
         }
-
+*/
         // 選擇警長要移交給誰
         else if(hasTransferSheriffModal && transfer_count <= 0 && role_stats[user].status != 4 && role_stats[user].status != 8)
         {

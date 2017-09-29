@@ -68,7 +68,7 @@ define(function(){
                     $('#mycontinue').val(1);
                     setContinue();
                     next_night_job = findFirstNightJob();
-                    $("#rundown textarea").prepend("[主持人] 請按下繼續鍵，開始夜晚的工作。\n");
+//                    $("#rundown textarea").prepend("[主持人] 請按下繼續鍵，開始夜晚的工作。\n");
                 };
             }
 
@@ -372,18 +372,32 @@ define(function(){
                 }
                 if($('#occ_played').val() == 0 && Day == 1)
                 {
+					$("#rundown textarea").prepend("[主持人] 現在開始競選警長。\n");
                     $("#vSheriffElection")[0].play();
-                    $('#sheriffModal').modal('show');
+					$('#commonModal').data('target', 'sheriff-select');
+					$('#commonModalLabel').text('請標記警長');
+                    $("#modalContinueBtn").attr("disabled", true);
+                    setTimeout(function () { $('#commonModal').modal('show'); }, 500);
+//                    $('#sheriffModal').modal('show');
                     $("#vSheriffElection")[0].onended = function(){
-                        $("#btnContinue").attr("disabled", false);
+//                        $("#btnContinue").attr("disabled", false);
                         $('#occ_played').val(1);
                     };
                 }
 
                 if($('#occ_played').val() == 1 && Day == 1)
                 {
+					$('#mycontinue').val(0);// clear to 0
+                    clrContinue();
                     console.log('vPlayerKilledWithWords');
                     $("#rundown textarea").prepend("[主持人] 請告知哪位玩家被殺害，並讓其發表遺言。\n");
+					$('#commonModal').data('target', 'death-announcement');
+					$('#commonModalLabel').text('請告知哪位玩家被殺害，可發表遺言。');
+					setTimeout(function () { $('#commonModal').modal('show'); }, 500);
+					$("#vPlayerKilledWithWords")[0].play();
+					$("#vPlayerKilledWithWords")[0].onended = function(){
+					};
+/*
                     $('#defineDeathModal #exampleModalLabel').text('請告知哪位玩家被殺害，並讓其發表遺言。');
                     $('#defineDeathModal').modal('show');
                     $("#vPlayerKilledWithWords")[0].play();
@@ -392,6 +406,7 @@ define(function(){
                         $("#btnContinue").attr("disabled", false);
                         $('#occ_played').val(2);
                     };
+*/
                 }
                 else if($('#occ_played').val() == 1 && Day != 1)
                 {
