@@ -36,7 +36,11 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
     var skilled_count = 0;
 
     $('#modalContinueBtn').on('click', function(){
-        // var $commonModalTarget = $('#commonModal').data('target');
+        var $commonModalTarget = $('#commonModal').data('target');
+		if($commonModalTarget == 'death-announcement')
+		{
+			$('#occ_played').val(4);
+		}
         // if($commonModalTarget == 'savior-select')
         // {
         //     savior_count = 0;
@@ -465,7 +469,6 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
 			setCheckedColor($(this));
 			sheriff_count++;
 			role_stats[user].user = 'sheriff';
-			alert(user);
 			$("#modalContinueBtn").attr("disabled", false);
 		}
 		else if(targetModal == 'sheriff-select' && isChecked($(this)))
@@ -474,7 +477,23 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
             sheriff_count--;
             setUncheckedColor($(this));
 			$("#modalContinueBtn").attr("disabled", true);
-		}	
+		}
+		
+		if(targetModal == 'deport-select' && electout_count <= 0)
+		{
+			setCheckedColor($(this));
+			electout_count++;
+			role_stats[user].status += 4;
+			$("#modalContinueBtn").attr("disabled", false);
+		}
+		else if(targetModal == 'deport-select' && isChecked($(this)))
+		{
+			electout_count--;
+			role_stats[user].status -= 4;
+            setUncheckedColor($(this));
+			$("#modalContinueBtn").attr("disabled", true);
+		}
+
 /*
         // 標記獵人
         else if(targetModal == 'hunter-select' && hunter_count <= 0 && role_stats[user].role != 'werewolves'  && role_stats[user].role != 'witch' && role_stats[user].role != 'seer' && role_stats[user].role != 'savior')
@@ -759,6 +778,11 @@ require(['jquery', 'bootstrap', 'function'], function($, _bootstrap, func){
             $target.css('color', 'white'); 
             console.log($target.css('background-color'));
         }
+		else if(role_stats[user].role == 'hunter')
+		{
+            $target.css('background-color', 'rgb(0, 128, 0)');
+            $target.css('color', 'white'); 
+		}
         else
         {
             $target.css('background-color', '#DDD');

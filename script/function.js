@@ -444,13 +444,19 @@ define(function(){
                 // 放逐發言
                 if($('#occ_played').val() == 4)
                 {
+					$('#mycontinue').val(0);// clear to 0
+                    clrContinue();
                     console.log('mycontinue = '+$('#mycontinue').val());
                     $("#vDiscussion")[0].play();
                     $("#vDiscussion")[0].onended = function(){
-                        $("#btnContinue").attr("disabled", false);
+//                        $("#btnContinue").attr("disabled", false);
                         $("#rundown textarea").prepend("[主持人] 開始票人，結束後請按下繼續鍵。\n");
-                        $('#electOutModal').modal('show');
-                        $('#occ_played').val(5);
+						$("#modalContinueBtn").attr("disabled", true);
+						$('#commonModal').data('target', 'deport-select');
+						$('#commonModalLabel').text('請選擇哪位玩家被放逐，可發表遺言。');
+						setTimeout(function () { $('#commonModal').modal('show'); }, 500);
+//                        $('#electOutModal').modal('show');
+//                        $('#occ_played').val(5);
                     };
                 }
 
