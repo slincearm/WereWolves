@@ -24,3 +24,5 @@ $('.choose-id').on('click', function(){
 $('.modalContinue').on('click', function(){
 });
 ```
+# Entry point
+https://slincearm.github.io/WereWolves/index.html
